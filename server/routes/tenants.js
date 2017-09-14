@@ -28,7 +28,6 @@ const checkForActiveTenant = async (ctx, user, email) => {
 		tenantRows = await ctx.db.query(`SELECT * FROM tenants WHERE tenant_email = $1 AND is_active = true;`, values)
 	} else {
 		const values = [email]
-		console.log('grrr')
 		tenantRows = await ctx.db.query(`SELECT * FROM tenants WHERE tenant_email = $1 AND is_active = true;`, values)
 	}
 	return tenantRows.rows[0]
